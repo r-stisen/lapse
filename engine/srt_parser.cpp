@@ -16,6 +16,7 @@
 #include "srt_parser.h"
 #include "charset.h"
 #include "log.h"
+#include <filesystem>
 
 // A utf-8 BOM sits in front of the very first line and would otherwise trip up
 // whatever we try to read out of it
@@ -105,6 +106,47 @@ int parse_timestamp(const std::string& line, size_t from) {
     return (int)ms;
 }
 
+// -- MicroDVD only --
+// Reads the frames specified in a line.
+// Returns the frame, or -1 if there isn't one specified. 
+// The microDVD line syntax is as follows:
+// {start-frame}{end-frame}Text
+// where "start-frame" and "stop-frame" are integers.
+int parse_frame(const std::string& line, bool is_end_frame = false) {
+    size_t start;
+    size_t end;
+
+    if (!is_end_frame) {
+        // extracts delimiters for start-frame
+        start = line.find("{");
+        if (start == std::string::npos) {
+            return -1; // opening char not found
+        }
+        end = line.find("}");
+        if (end == std::string::npos) {
+            return -1; // closing char not found
+        }
+    } else {
+        // extracts delimiters for end-frame
+        start = line.find("}{");
+        if (start == std::string::npos) {
+            return -1;
+        }
+        end = line.find("}", start + 2);
+        if (end == std::string::npos) {
+            return -1;
+        }
+    }
+    // extracts frame as string between the delimiters
+    std::string frameStr = line.substr(start + 1, end - start - 1);
+
+    if (frameStr.empty()) return -1;
+
+    int frame = std::stoi(frameStr);
+
+    return frame;
+}
+
 std::vector<std::pair<int,int>> read_subtitle(const std::string& path) {
     if (path.ends_with(".srt"))
         return read_srt(path.c_str());
@@ -112,6 +154,14 @@ std::vector<std::pair<int,int>> read_subtitle(const std::string& path) {
         return read_ass(path.c_str());
     if (path.ends_with(".vtt"))
         return read_vtt(path.c_str());
+    if (path.ends_with(".sub")) {
+        std::filesystem::path idx_path = std::filesystem::path(path).replace_extension(".idx");
+          if (std::filesystem::exists(idx_path)) {
+            throw std::runtime_error(
+                "'.sub' file appears to be VobSub (matching .idx found), not MicroDVD: " + path);
+          }
+        return read_microdvd(path.c_str());
+    }
     throw std::runtime_error("Unsupported subtitle format: " + path);
 }
 
@@ -227,6 +277,36 @@ std::vector<std::pair<int, int>> read_ass(const char* filename) {
 std::vector<std::pair<int,int>> read_vtt(const char* filename) {
     return read_srt(filename);
 }
+
+// microdvd uses frame-based cues, but the format is syntactically very similar
+// fortunately, every line in microdvd corresponds to a cue, so parsing is very simple.
+std::vector<std::pair<int, int>> read_microdvd(const char* filename) {
+    std::vector<std::pair<int, int>> frames;
+    std::string line {};
+    std::istringstream read_file(load_text(filename));
+    bool first = true;
+    while (getline (read_file, line)) {
+        if (first) { strip_bom(line); first = false; }
+
+        size_t separator = line.find("}{");
+        if (separator == std::string::npos) continue;
+
+        if ((int)frames.size() >= MAX_CUES) {
+            say() << "Stopping at " << MAX_CUES << " cues, the rest of this file is left where it is\n";
+            break;
+        }
+
+        int start_frame = parse_frame(line);
+        int end_frame   = parse_frame(line, true);
+
+        if (start_frame < 0 || end_frame < 0)
+            frames.push_back({0, 0});   // dropped later, keeps the count right
+        else
+            frames.push_back(std::make_pair(start_frame, end_frame));
+    }
+    return frames;
+}
+
 
 
 // Cues that sit on top of each other normally get glued into one span - they

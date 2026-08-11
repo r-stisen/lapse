@@ -33,6 +33,7 @@ std::pair<int,int> ass_time_columns(const std::string& format_line);
 std::vector<std::pair<int,int>> read_subtitle(const std::string& path);
 std::vector<std::pair<int, int>> read_srt(const char* filename);
 std::vector<std::pair<int, int>> read_ass(const char* filename);
+std::vector<std::pair<int, int>> read_microdvd(const char* filename);
 std::vector<std::pair<int,int>> read_vtt(const char* filename);
 std::pair<std::vector<std::pair<int,int>>, std::vector<int>> process_spans(const std::vector<std::pair<int, int>>& timestamps, bool merge = true, bool sort_by_time = true);
 const float SPEECH_THRESHOLD = 0.25f;
