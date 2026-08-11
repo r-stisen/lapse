@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/cowmuncher/Projects/LAPSE/lapse/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

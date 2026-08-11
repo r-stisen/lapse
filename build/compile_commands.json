@@ -1,0 +1,134 @@
+[
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/cc  -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/fvad.dir/_deps/libfvad-src/src/fvad.c.o -c /home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/fvad.c",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/fvad.c",
+  "output": "CMakeFiles/fvad.dir/_deps/libfvad-src/src/fvad.c.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/cc  -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/division_operations.c.o -c /home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/division_operations.c",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/division_operations.c",
+  "output": "CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/division_operations.c.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/cc  -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/energy.c.o -c /home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/energy.c",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/energy.c",
+  "output": "CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/energy.c.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/cc  -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/get_scaling_square.c.o -c /home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/get_scaling_square.c",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/get_scaling_square.c",
+  "output": "CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/get_scaling_square.c.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/cc  -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/resample_48khz.c.o -c /home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/resample_48khz.c",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/resample_48khz.c",
+  "output": "CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/resample_48khz.c.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/cc  -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/resample_by_2_internal.c.o -c /home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/resample_by_2_internal.c",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/resample_by_2_internal.c",
+  "output": "CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/resample_by_2_internal.c.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/cc  -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/resample_fractional.c.o -c /home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/resample_fractional.c",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/resample_fractional.c",
+  "output": "CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/resample_fractional.c.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/cc  -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/spl_inl.c.o -c /home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/spl_inl.c",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/signal_processing/spl_inl.c",
+  "output": "CMakeFiles/fvad.dir/_deps/libfvad-src/src/signal_processing/spl_inl.c.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/cc  -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/fvad.dir/_deps/libfvad-src/src/vad/vad_core.c.o -c /home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/vad/vad_core.c",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/vad/vad_core.c",
+  "output": "CMakeFiles/fvad.dir/_deps/libfvad-src/src/vad/vad_core.c.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/cc  -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/fvad.dir/_deps/libfvad-src/src/vad/vad_filterbank.c.o -c /home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/vad/vad_filterbank.c",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/vad/vad_filterbank.c",
+  "output": "CMakeFiles/fvad.dir/_deps/libfvad-src/src/vad/vad_filterbank.c.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/cc  -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/fvad.dir/_deps/libfvad-src/src/vad/vad_gmm.c.o -c /home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/vad/vad_gmm.c",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/vad/vad_gmm.c",
+  "output": "CMakeFiles/fvad.dir/_deps/libfvad-src/src/vad/vad_gmm.c.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/cc  -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/fvad.dir/_deps/libfvad-src/src/vad/vad_sp.c.o -c /home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/vad/vad_sp.c",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/src/vad/vad_sp.c",
+  "output": "CMakeFiles/fvad.dir/_deps/libfvad-src/src/vad/vad_sp.c.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/c++  -I/home/cowmuncher/Projects/LAPSE/lapse/engine -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -O3 -DNDEBUG -std=gnu++20 -flto=auto -fno-fat-lto-objects -fno-math-errno -o CMakeFiles/lapse.dir/engine/main.cpp.o -c /home/cowmuncher/Projects/LAPSE/lapse/engine/main.cpp",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/engine/main.cpp",
+  "output": "CMakeFiles/lapse.dir/engine/main.cpp.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/c++  -I/home/cowmuncher/Projects/LAPSE/lapse/engine -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -O3 -DNDEBUG -std=gnu++20 -flto=auto -fno-fat-lto-objects -fno-math-errno -o CMakeFiles/lapse.dir/engine/correlate.cpp.o -c /home/cowmuncher/Projects/LAPSE/lapse/engine/correlate.cpp",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/engine/correlate.cpp",
+  "output": "CMakeFiles/lapse.dir/engine/correlate.cpp.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/c++  -I/home/cowmuncher/Projects/LAPSE/lapse/engine -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -O3 -DNDEBUG -std=gnu++20 -flto=auto -fno-fat-lto-objects -fno-math-errno -o CMakeFiles/lapse.dir/engine/align.cpp.o -c /home/cowmuncher/Projects/LAPSE/lapse/engine/align.cpp",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/engine/align.cpp",
+  "output": "CMakeFiles/lapse.dir/engine/align.cpp.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/c++  -I/home/cowmuncher/Projects/LAPSE/lapse/engine -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -O3 -DNDEBUG -std=gnu++20 -flto=auto -fno-fat-lto-objects -fno-math-errno -o CMakeFiles/lapse.dir/engine/decoder.cpp.o -c /home/cowmuncher/Projects/LAPSE/lapse/engine/decoder.cpp",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/engine/decoder.cpp",
+  "output": "CMakeFiles/lapse.dir/engine/decoder.cpp.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/c++  -I/home/cowmuncher/Projects/LAPSE/lapse/engine -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -O3 -DNDEBUG -std=gnu++20 -flto=auto -fno-fat-lto-objects -fno-math-errno -o CMakeFiles/lapse.dir/engine/srt_parser.cpp.o -c /home/cowmuncher/Projects/LAPSE/lapse/engine/srt_parser.cpp",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/engine/srt_parser.cpp",
+  "output": "CMakeFiles/lapse.dir/engine/srt_parser.cpp.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/c++  -I/home/cowmuncher/Projects/LAPSE/lapse/engine -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -O3 -DNDEBUG -std=gnu++20 -flto=auto -fno-fat-lto-objects -fno-math-errno -o CMakeFiles/lapse.dir/engine/write_subtitle.cpp.o -c /home/cowmuncher/Projects/LAPSE/lapse/engine/write_subtitle.cpp",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/engine/write_subtitle.cpp",
+  "output": "CMakeFiles/lapse.dir/engine/write_subtitle.cpp.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/c++  -I/home/cowmuncher/Projects/LAPSE/lapse/engine -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -O3 -DNDEBUG -std=gnu++20 -flto=auto -fno-fat-lto-objects -fno-math-errno -o CMakeFiles/lapse.dir/engine/silero.cpp.o -c /home/cowmuncher/Projects/LAPSE/lapse/engine/silero.cpp",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/engine/silero.cpp",
+  "output": "CMakeFiles/lapse.dir/engine/silero.cpp.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/c++  -I/home/cowmuncher/Projects/LAPSE/lapse/engine -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -O3 -DNDEBUG -std=gnu++20 -flto=auto -fno-fat-lto-objects -fno-math-errno -o CMakeFiles/lapse.dir/engine/cuetext.cpp.o -c /home/cowmuncher/Projects/LAPSE/lapse/engine/cuetext.cpp",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/engine/cuetext.cpp",
+  "output": "CMakeFiles/lapse.dir/engine/cuetext.cpp.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/c++  -I/home/cowmuncher/Projects/LAPSE/lapse/engine -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -O3 -DNDEBUG -std=gnu++20 -flto=auto -fno-fat-lto-objects -fno-math-errno -o CMakeFiles/lapse.dir/engine/charset.cpp.o -c /home/cowmuncher/Projects/LAPSE/lapse/engine/charset.cpp",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/engine/charset.cpp",
+  "output": "CMakeFiles/lapse.dir/engine/charset.cpp.o"
+},
+{
+  "directory": "/home/cowmuncher/Projects/LAPSE/lapse/build",
+  "command": "/usr/bin/c++  -I/home/cowmuncher/Projects/LAPSE/lapse/engine -I/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-src/include -O3 -DNDEBUG -std=gnu++20 -flto=auto -fno-fat-lto-objects -fno-math-errno -o CMakeFiles/lapse.dir/engine/log.cpp.o -c /home/cowmuncher/Projects/LAPSE/lapse/engine/log.cpp",
+  "file": "/home/cowmuncher/Projects/LAPSE/lapse/engine/log.cpp",
+  "output": "CMakeFiles/lapse.dir/engine/log.cpp.o"
+}
+]

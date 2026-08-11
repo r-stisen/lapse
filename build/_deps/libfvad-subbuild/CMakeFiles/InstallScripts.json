@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/cowmuncher/Projects/LAPSE/lapse/build/_deps/libfvad-subbuild/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
