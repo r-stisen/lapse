@@ -106,15 +106,16 @@ int parse_timestamp(const std::string& line, size_t from) {
     return (int)ms;
 }
 
-// -- MicroDVD only --
+// MicroDVD only
 // Reads the frames specified in a line.
 // Returns the frame, or -1 if there isn't one specified. 
 // The microDVD line syntax is as follows:
 // {start-frame}{end-frame}Text
 // where "start-frame" and "stop-frame" are integers.
-int parse_frame(const std::string& line, bool is_end_frame = false) {
+int parse_frame(const std::string& line, bool is_end_frame) {
     size_t start;
     size_t end;
+    std::string frameStr;
 
     if (!is_end_frame) {
         // extracts delimiters for start-frame
@@ -126,6 +127,11 @@ int parse_frame(const std::string& line, bool is_end_frame = false) {
         if (end == std::string::npos) {
             return -1; // closing char not found
         }
+
+        // extracts frame as string between the delimiters
+        frameStr = line.substr(start + 1, end - start - 1);
+
+        if (frameStr.empty()) return -1;
     } else {
         // extracts delimiters for end-frame
         start = line.find("}{");
@@ -136,11 +142,11 @@ int parse_frame(const std::string& line, bool is_end_frame = false) {
         if (end == std::string::npos) {
             return -1;
         }
-    }
-    // extracts frame as string between the delimiters
-    std::string frameStr = line.substr(start + 1, end - start - 1);
+        // extracts frame as string between the delimiters
+        frameStr = line.substr(start + 2, end - start - 2);
 
-    if (frameStr.empty()) return -1;
+        if (frameStr.empty()) return -1;
+    }
 
     int frame = std::stoi(frameStr);
 
@@ -278,10 +284,13 @@ std::vector<std::pair<int,int>> read_vtt(const char* filename) {
     return read_srt(filename);
 }
 
-// microdvd uses frame-based cues, but the format is syntactically very similar
+// microdvd uses frame-based cues, but the format is syntactically similar
 // fortunately, every line in microdvd corresponds to a cue, so parsing is very simple.
+// As activity() measures activity every 10ms and compares to every 10ms of audio,
+// we convert frames to timestamps using an arbitrary framerate.
+// The actual framerate is calculated later.
 std::vector<std::pair<int, int>> read_microdvd(const char* filename) {
-    std::vector<std::pair<int, int>> frames;
+    std::vector<std::pair<int, int>> timestamps;
     std::string line {};
     std::istringstream read_file(load_text(filename));
     bool first = true;
@@ -291,20 +300,20 @@ std::vector<std::pair<int, int>> read_microdvd(const char* filename) {
         size_t separator = line.find("}{");
         if (separator == std::string::npos) continue;
 
-        if ((int)frames.size() >= MAX_CUES) {
+        if ((int)timestamps.size() >= MAX_CUES) {
             say() << "Stopping at " << MAX_CUES << " cues, the rest of this file is left where it is\n";
             break;
         }
 
-        int start_frame = parse_frame(line);
-        int end_frame   = parse_frame(line, true);
+        int start_ms = parse_frame(line) * (1000 / ARB_FPS);
+        int end_ms   = parse_frame(line, true) * (1000 / ARB_FPS);
 
-        if (start_frame < 0 || end_frame < 0)
-            frames.push_back({0, 0});   // dropped later, keeps the count right
+        if (start_ms < 0 || end_ms < 0)
+            timestamps.push_back({0, 0});   // dropped later, keeps the count right
         else
-            frames.push_back(std::make_pair(start_frame, end_frame));
+            timestamps.push_back(std::make_pair(start_ms, end_ms));
     }
-    return frames;
+    return timestamps;
 }
 
 

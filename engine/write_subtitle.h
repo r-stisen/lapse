@@ -27,6 +27,8 @@ void backup_file(const char* path);
 void write_srt_OLS(const char* input_path, const char* output_path, double slope, double intercept_s);
 void write_ass_OLS(const char* input_path, const char* output_path, double slope, double intercept_s);
 void write_vtt_OLS(const char* input_path, const char* output_path, double slope, double intercept_s);
+void write_microdvd_OLS(const char* input_path, const char* output_path, double slope, double intercept_s);
 void write_srt_split(const char* input_path, const char* output_path, double slope, const std::vector<int>& offsets, const std::vector<int>& mapping);
 void write_ass_split(const char* input_path, const char* output_path, double slope, const std::vector<int>& offsets, const std::vector<int>& mapping);
 void write_vtt_split(const char* input_path, const char* output_path, double slope, const std::vector<int>& offsets, const std::vector<int>& mapping);
+void write_microdvd_split(const char* input_path, const char* output_path, double slope, const std::vector<int>& offsets, const std::vector<int>& mapping);

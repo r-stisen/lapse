@@ -23,6 +23,7 @@
 #include "charset.h"
 
 int parse_timestamp(const std::string& line, size_t from);
+int parse_frame(const std::string& line, bool is_end_frame = false);
 std::string load_text(const std::string& path, Charset* was = nullptr);
 std::string trim(const std::string& s);
 
@@ -44,6 +45,8 @@ const int MAX_CUE_MS = 10000;
 const int MAX_TIME_MS = 24 * 3600 * 1000;
 const int MAX_CUES = 100000;
 const size_t MAX_SUBTITLE_BYTES = 64u * 1024 * 1024;
+
+const float ARB_FPS = 24;
 
 std::vector<int> activity(const std::vector<std::pair<int, int>>& spans);
 std::pair<std::vector<std::pair<int, int>>, std::vector<float>> reference_spans(const std::vector<float>& probability);

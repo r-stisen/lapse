@@ -35,7 +35,7 @@
 
 // The formats the parsers and the writers both handle. Callers can ask for the
 // list with --formats so they know what is safe to hand us
-const char* subtitle_formats[] = {".srt", ".ass", ".ssa", ".vtt"};
+const char* subtitle_formats[] = {".srt", ".ass", ".ssa", ".vtt", ".sub"};
 
 bool is_subtitle(const std::string& path) {
     for (auto& ext : subtitle_formats)
@@ -52,6 +52,8 @@ void write_offsets(const std::string& in_path, const std::string& out_path, doub
         write_ass_split(in_path.c_str(), out_path.c_str(), slope, offsets, mapping);
     else if (in_path.ends_with(".vtt"))
         write_vtt_split(in_path.c_str(), out_path.c_str(), slope, offsets, mapping);
+    else if (in_path.ends_with(".sub"))
+        write_microdvd_split(in_path.c_str(), out_path.c_str(), slope, offsets, mapping);
 }
 
 static bool number(const char* text, double& into) {
@@ -596,6 +598,8 @@ int run(int argc, const char *argv[]) {
                 write_ass_OLS(input_path.c_str(), output_path.c_str(), slope, intercept);
             else if (input_path.ends_with(".vtt"))
                 write_vtt_OLS(input_path.c_str(), output_path.c_str(), slope, intercept);
+            else if (input_path.ends_with(".sub"))
+                write_microdvd_OLS(input_path.c_str(), output_path.c_str(), slope, intercept);
         }
         report(card);
         return (verdict == Verdict::Unsure && !force) ? 3 : 0;

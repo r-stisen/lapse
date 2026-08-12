@@ -80,6 +80,13 @@ static std::string ms_to_ass_ts(int ms) {
     return buf;
 }
 
+static std::string ms_to_frame(int ms, double slope) {
+    if (ms < 0) ms = 0;
+    int frame = ms / (1000 / ( ARB_FPS / (1 + slope)));
+    std::string frame_str = std::to_string(frame);
+    return frame_str;
+}
+
 // srt and vtt are the same file with a different character in front of the
 // milliseconds, so they go through here together. We write to a temp file and
 // move it into place at the end if something throws halfway the subtitle the user already had is still whole
@@ -180,6 +187,45 @@ static void write_dialogue(const char* input_path, const char* output_path, cons
     save_file(output_path, out);
 }
 
+static void write_microdvd(const char* input_path, const char* output_path, const Shift& shift, double slope) {
+    std::string text = load_file(input_path);
+    bool ends_clean = !text.empty() && text.back() == '\n';
+    std::istringstream ss(text);
+
+    std::string out;
+
+    std::string line;
+    int cue = 0;
+    const char* eol = "\n";
+    while (std::getline(ss, line)) {
+        if (!line.empty() && line.back() == '\r') {
+            line.pop_back();
+            eol = "\r\n";
+        }  
+        
+        size_t separator = line.find("}{");
+        if (separator != std::string::npos) {
+          int start_ms = parse_frame(line) * (1000 / ARB_FPS);
+          int end_ms = parse_frame(line, true) * (1000 / ARB_FPS);
+
+            if (start_ms >= 0 && end_ms >= 0) {
+                std::string tail;
+                size_t after = line.find("}", separator + 2);
+                if (after != std::string::npos) {
+                    tail = line.substr(after);
+                }
+                line = "{" + ms_to_frame(shift.apply(start_ms, cue), slope) + "}{" + ms_to_frame(shift.apply(end_ms, cue), slope) + tail;
+            }
+            cue++;
+        }
+
+        out += line;
+        if (ends_clean || !ss.eof()) out += eol;
+    }
+
+    save_file(output_path, out);
+}
+
 static Shift one_line(double slope, double intercept_s) {
     Shift shift;
     shift.slope = slope;
@@ -207,6 +253,10 @@ void write_ass_OLS(const char* input_path, const char* output_path, double slope
     write_dialogue(input_path, output_path, one_line(slope, intercept_s));
 }
 
+void write_microdvd_OLS(const char* input_path, const char* output_path, double slope, double intercept_s) {
+    write_microdvd(input_path, output_path, one_line(slope, intercept_s), slope);
+}
+
 void write_srt_split(const char* input_path, const char* output_path, double slope, const std::vector<int>& offsets, const std::vector<int>& mapping) {
     write_cues(input_path, output_path, ',', per_cue(slope, offsets, mapping));
 }
@@ -217,4 +267,8 @@ void write_vtt_split(const char* input_path, const char* output_path, double slo
 
 void write_ass_split(const char* input_path, const char* output_path, double slope, const std::vector<int>& offsets, const std::vector<int>& mapping) {
     write_dialogue(input_path, output_path, per_cue(slope, offsets, mapping));
+}
+
+void write_microdvd_split(const char* input_path, const char* output_path, double slope, const std::vector<int>& offsets, const std::vector<int>& mapping) {
+    write_microdvd(input_path, output_path, per_cue(slope, offsets, mapping), slope);
 }
