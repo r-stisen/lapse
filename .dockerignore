@@ -1,0 +1,6 @@
+.git
+.github
+docs
+build
+*.md
+!README.md
